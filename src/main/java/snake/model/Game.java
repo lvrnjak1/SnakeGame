@@ -17,7 +17,7 @@ public class Game {
         int randX = (new Random()).nextInt(boardHeight);
         int randY = (new Random()).nextInt(boardWidth);
 
-        this.snake = new Snake();
+        this.snake = new Snake(boardWidth, boardHeight);
         this.food = new Food(randX, randY);
         this.score = 0;
         this.gameOver = false;

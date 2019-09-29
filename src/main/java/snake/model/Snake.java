@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Snake {
     private List<SnakePart> snake = new ArrayList<>();
+    private int speed;
 
-    public Snake() {
+    public Snake(int width, int height) {
         //default snake with three parts
-        addPart(0,0);
-        addPart(0,1);
-        addPart(0,2);
+        addPart(width/2,height/2);
+        addPart(width/2,height/2);
+        addPart(width/2,height/2);
+        this.speed = 5;
     }
 
     public List<SnakePart> getSnake() {
@@ -23,5 +25,13 @@ public class Snake {
 
     public void addPart(int x, int y){
         snake.add(new SnakePart(x, y));
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }
