@@ -6,6 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import snake.model.Game;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,10 +19,11 @@ public class BoardController implements Initializable {
     public Button buttonDown;
     public Label score;
 
-
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        game = new Game();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
         new AnimationTimer(){
@@ -35,15 +37,22 @@ public class BoardController implements Initializable {
                     return;
                 }
 
-                /*if(now - lastTick > 1000000000 / speed){
+                if(now - lastTick > 1000000000 / game.getSnake().getSpeed()){
                     lastTick = now;
                     play(graphicsContext);
-                }*/
+                }
             }
         }.start();
+
+
     }
 
     private void play(GraphicsContext graphicsContext) {
+        if(game.isGameOver()){
+            //add a label for game over
+            return;
+        }
+
 
     }
 }
