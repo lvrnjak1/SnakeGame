@@ -69,7 +69,7 @@ public class Snake implements Movable{
     }
 
     public void eat(Food food) {
-        //TODO
+        addPart(food.getX(), food.getY());
     }
 
     public boolean isSelfColided() {
