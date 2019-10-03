@@ -3,6 +3,7 @@ package snake.controllers;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -10,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import snake.model.Direction;
 import snake.model.Game;
 import snake.model.Snake;
@@ -91,6 +95,7 @@ public class BoardController implements Initializable, Runnable {
 
     private synchronized void endGame(ActionEvent actionEvent) {
         game.setGameOver(true);
+        showGameOverAlert();
         notifyAll();
     }
 
@@ -115,7 +120,7 @@ public class BoardController implements Initializable, Runnable {
     private void play() {
         if(!game.getSnake().move() || game.isSnakeHitEdge()){
             game.setGameOver(true);
-            showAlert("Game Over");
+            showGameOverAlert();
             return;
         }
 
@@ -154,6 +159,14 @@ public class BoardController implements Initializable, Runnable {
         }
     }
 
-    private void showAlert(String message) {
+    private void showGameOverAlert() {
+        String message = "Game Over";
+        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
+        graphicsContext.setFill(Color.WHITE);
+        graphicsContext.setTextAlign(TextAlignment.CENTER);
+        graphicsContext.setTextBaseline(VPos.CENTER);
+        graphicsContext.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        graphicsContext.fillText(message, (width * pixel) / 2., (heigth * pixel) / 2.);
     }
 }
