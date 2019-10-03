@@ -1,12 +1,15 @@
 package snake.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import snake.model.Direction;
 import snake.model.Game;
 import snake.model.Snake;
 import snake.model.SnakePart;
@@ -33,9 +36,58 @@ public class BoardController implements Initializable {
         game = new Game();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         drawBoard(graphicsContext);
+        canvas.setOnKeyPressed(this::handleKeyInput);
+        pauseButton.setOnAction(this::pauseOrResume);
+        restartButton.setOnAction(this::restart);
+        endGameButton.setOnAction(this::endGame);
     }
 
+    private void handleKeyInput(KeyEvent event) {
+        switch (event.getCharacter()){
+            case "w":{
+                //up
+                game.getSnake().setDirection(Direction.UP);
+                break;
+            }
+            case "a":{
+                //left
+                game.getSnake().setDirection(Direction.LEFT);
+                break;
+            }
+            case "s":{
+                //right
+                game.getSnake().setDirection(Direction.RIGHT);
+                break;
+            }
+            case "d":{
+                //down
+                game.getSnake().setDirection(Direction.DOWN);
+                break;
+            }
+        }
+    }
+
+
+    private void pauseOrResume(ActionEvent actionEvent) {
+        if(game.isPaused()){
+            pauseButton.setText("pause");
+            game.setPaused(false);
+        }else{
+            pauseButton.setText("resume");
+            game.setPaused(true);
+        }
+    }
+
+    private void restart(ActionEvent actionEvent) {
+    }
+
+    private void endGame(ActionEvent actionEvent) {
+    }
+
+
+
     private void drawBoard(GraphicsContext graphicsContext) {
+        //do i need to clear it?
         graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
 
         Snake snake = game.getSnake();
@@ -53,7 +105,5 @@ public class BoardController implements Initializable {
             //add a label for game over
             return;
         }
-
-
     }
 }
