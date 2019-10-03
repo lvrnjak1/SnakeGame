@@ -95,7 +95,6 @@ public class BoardController implements Initializable, Runnable {
 
 
     private void drawBoard(GraphicsContext graphicsContext) {
-        //do i need to clear it?
         graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
 

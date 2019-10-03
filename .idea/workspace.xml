@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="snake is moving properly">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="public to private in some methods">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snake/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snake/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snake/model/SnakePart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snake/model/SnakePart.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,42 +73,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="117" column="38" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+            <state relative-caret-position="228">
+              <caret line="107" column="109" selection-start-line="107" selection-start-column="109" selection-end-line="107" selection-end-column="109" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/snake/model/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="62" column="37" lean-forward="true" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
-              <folding>
-                <element signature="e#1053#1054#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/snake/model/Snake.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1015#1016#0" expanded="true" />
-                <element signature="e#1807#1808#0" expanded="true" />
-                <element signature="e#1842#1843#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,10 +132,10 @@
         <option value="$PROJECT_DIR$/src/main/java/snake/model/Direction.java" />
         <option value="$PROJECT_DIR$/src/main/java/snake/model/Food.java" />
         <option value="$PROJECT_DIR$/src/main/java/snake/model/Movable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/snake/model/Snake.java" />
         <option value="$PROJECT_DIR$/src/main/java/snake/model/SnakePart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" />
         <option value="$PROJECT_DIR$/src/main/java/snake/model/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/snake/model/Snake.java" />
+        <option value="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" />
       </list>
     </option>
   </component>
@@ -383,7 +353,7 @@
       <workItem from="1569754900123" duration="9495000" />
       <workItem from="1570011085876" duration="596000" />
       <workItem from="1570047942176" duration="91000" />
-      <workItem from="1570078794743" duration="9290000" />
+      <workItem from="1570078794743" duration="10397000" />
     </task>
     <task id="LOCAL-00001" summary="method that returns the number of body parts">
       <created>1570081028757</created>
@@ -497,11 +467,32 @@
       <option name="project" value="LOCAL" />
       <updated>1570087863625</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="methods that detect collisions with itself and the edges">
+      <created>1570088144599</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1570088144599</updated>
+    </task>
+    <task id="LOCAL-00018" summary="method to eat the food">
+      <created>1570088290540</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1570088290540</updated>
+    </task>
+    <task id="LOCAL-00019" summary="public to private in some methods">
+      <created>1570088328838</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1570088328838</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20774000" />
+    <option name="totallyTimeSpent" value="21881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
@@ -566,7 +557,10 @@
     <MESSAGE value="next food method" />
     <MESSAGE value="food gets new color every time it initializes" />
     <MESSAGE value="snake is moving properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="snake is moving properly" />
+    <MESSAGE value="methods that detect collisions with itself and the edges" />
+    <MESSAGE value="method to eat the food" />
+    <MESSAGE value="public to private in some methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="public to private in some methods" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -644,30 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="117" column="38" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/snake/model/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1807#1808#0" expanded="true" />
-            <element signature="e#1842#1843#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/snake/model/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -675,6 +645,32 @@
           <folding>
             <element signature="e#1053#1054#0" expanded="true" />
             <element signature="e#1093#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/snake/model/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
+            <element signature="e#1670#1671#0" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1842#1843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="107" column="109" selection-start-line="107" selection-start-column="109" selection-end-line="107" selection-end-column="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
