@@ -44,7 +44,6 @@ public class BoardController implements Initializable, Runnable {
         graphicsContext = canvas.getGraphicsContext2D();
 
         drawBoard(graphicsContext);
-        setLayoutProperties();
         bindInputHandlers();
 
         canvas.requestFocus();
@@ -65,12 +64,6 @@ public class BoardController implements Initializable, Runnable {
         graphicsContext.fillRect(game.getFood().getX() * PIXEL, game.getFood().getY() * PIXEL, PIXEL, PIXEL);
 
         Platform.runLater(() -> score.setText(String.valueOf(game.getScore())));
-    }
-
-    private void setLayoutProperties() {
-        //do this in css
-        score.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        scoreLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
     }
 
     private void bindInputHandlers() {
