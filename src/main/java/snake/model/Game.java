@@ -9,7 +9,7 @@ public class Game {
     private static final int boardWidth = 40;
     private static final int boardHeight = 40;
 
-    private int score;
+    private long score;
     private boolean gameOver;
 
     public Game() {
@@ -38,7 +38,7 @@ public class Game {
         return boardHeight;
     }
 
-    public int getScore() {
+    public long getScore() {
         return score;
     }
 
