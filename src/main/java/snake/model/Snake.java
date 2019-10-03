@@ -34,4 +34,8 @@ public class Snake {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
+    public int getNumberOfParts(){
+        return snake.size();
+    }
 }
