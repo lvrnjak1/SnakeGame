@@ -21,7 +21,7 @@ public class Snake{
 
     private Direction getRandomDirection() {
         Random random = new Random();
-        int dir = random.nextInt(5);
+        int dir = random.nextInt(4);
         return Direction.values()[dir];
     }
 
