@@ -29,6 +29,7 @@ public class BoardController implements Initializable, Runnable {
     public Button endGameButton;
     public Label score;
     public BorderPane pane;
+    public Label scoreLabel;
 
     private Game game;
 
@@ -44,6 +45,8 @@ public class BoardController implements Initializable, Runnable {
         game = new Game();
         graphicsContext = canvas.getGraphicsContext2D();
         drawBoard(graphicsContext);
+        score.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        scoreLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         canvas.setOnKeyTyped(this::handleKeyInput);
         pauseButton.setOnAction(this::pauseOrResume);
         restartButton.setOnAction(this::restart);
