@@ -1,2 +1,2 @@
 # SnakeGame
-Traditional Snake Game developed using JavaFx
+Traditional Snake Game developed using JavaFX
