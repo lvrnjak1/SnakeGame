@@ -51,6 +51,8 @@ public class Snake implements Movable{
 
     @Override
     public void move() {
-
+        for(SnakePart snakePart : snake){
+            snakePart.move(getDirection());
+        }
     }
 }

@@ -1,6 +1,6 @@
 package snake.model;
 
-public class SnakePart implements Movable{
+public class SnakePart{
     private int x;
     private int y;
 
@@ -34,8 +34,7 @@ public class SnakePart implements Movable{
         return getX() == x && getY() == y;
     }
 
-    @Override
-    public void move() {
-
+    public void move(Direction direction) {
+        movePart(direction.getDeltaX(), direction.getDeltaY());
     }
 }
