@@ -12,11 +12,12 @@ public class Snake{
     private Direction direction;
 
     public Snake(int width, int height) {
-        addPart(width/2 + 2,height/2);
-        addPart(width/2 + 1,height/2);
+        this.direction = getRandomDirection();
+        addPart(width/2 + 2 * direction.getDeltaX(),height/2 + 2 * direction.getDeltaY());
+        addPart(width/2 + direction.getDeltaX(),height/2 + direction.getDeltaY());
         addPart(width/2,height/2);
         this.speed = 1;
-        this.direction = getRandomDirection();
+
     }
 
     private Direction getRandomDirection() {
