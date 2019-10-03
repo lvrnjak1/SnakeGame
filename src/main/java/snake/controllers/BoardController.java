@@ -76,20 +76,26 @@ public class BoardController implements Initializable, Runnable {
     }
 
 
-    private void pauseOrResume(ActionEvent actionEvent) {
+    private synchronized void pauseOrResume(ActionEvent actionEvent) {
         if(game.isPaused()){
             pauseButton.setText("pause");
-            game.setPaused(false);
+            game.setGameOver(false);
         }else{
             pauseButton.setText("resume");
-            game.setPaused(true);
+            game.setGameOver(true);
         }
+
+        notifyAll();
     }
 
-    private void restart(ActionEvent actionEvent) {
+    private synchronized void restart(ActionEvent actionEvent) {
+        game = new Game();
+        notifyAll();
     }
 
-    private void endGame(ActionEvent actionEvent) {
+    private synchronized void endGame(ActionEvent actionEvent) {
+        game.setGameOver(true);
+        notifyAll();
     }
 
 
@@ -109,11 +115,6 @@ public class BoardController implements Initializable, Runnable {
     }
 
     private void play() {
-        if(game.isGameOver()){
-            showAlert("Game Over");
-            return;
-        }
-
         if(!game.getSnake().move() || game.isSnakeHitEdge()){
             game.setGameOver(true);
             showAlert("Game Over");
@@ -145,6 +146,7 @@ public class BoardController implements Initializable, Runnable {
             }
             Platform.runLater(() -> canvas.requestFocus());
             play();
+
             try {
                 Thread.sleep(TICKER_INTERVAL);
             } catch (InterruptedException e) {

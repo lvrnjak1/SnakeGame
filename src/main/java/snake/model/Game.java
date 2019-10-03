@@ -11,7 +11,6 @@ public class Game {
 
     private int score;
     private boolean gameOver;
-    private boolean paused;
 
     public Game() {
         int randX = (new Random()).nextInt(boardHeight);
@@ -21,7 +20,6 @@ public class Game {
         this.food = new Food(randX, randY);
         this.score = 0;
         this.gameOver = false;
-        this.paused = false;
     }
 
     public Snake getSnake() {
@@ -52,12 +50,8 @@ public class Game {
         this.gameOver = gameOver;
     }
 
-    public void setPaused(boolean paused) {
-        this.paused = paused;
-    }
-
     public boolean isPaused(){
-        return paused;
+        return isGameOver();
     }
 
     public boolean isSnakeHitEdge() {
