@@ -35,7 +35,6 @@ public class SnakePart{
     }
 
     public void move(Direction direction) {
-        //System.out.println("Here " + getX() +" " + getY());
         movePart(direction.getDeltaX(), direction.getDeltaY());
     }
 }

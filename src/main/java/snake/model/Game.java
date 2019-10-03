@@ -62,7 +62,7 @@ public class Game {
 
     public boolean isSnakeHitEdge() {
         for(SnakePart snakePart : snake.getSnake()){
-            if(snakePart.getX() == -1 || snakePart.getX() == boardWidth || snakePart.getY() == -1 || snakePart.getX() == boardHeight){
+            if(snakePart.getX() == -1 || snakePart.getX() == boardWidth || snakePart.getY() == -1 || snakePart.getY() == boardHeight){
                 return true;
             }
         }
