@@ -12,6 +12,7 @@ public class Food{
     public Food(int x, int y) {
         this.x = x;
         this.y = y;
+        //color = Colors.BLUE;
         nextColor();
     }
 
@@ -46,7 +47,7 @@ public class Food{
         do {
             color = random.nextInt(Colors.values().length);
             newColor = Colors.values()[color];
-        }while (getColor() != newColor);
+        }while (getColor() == newColor);
 
         setColor(newColor);
     }
