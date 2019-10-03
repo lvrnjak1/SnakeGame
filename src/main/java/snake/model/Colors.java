@@ -1,17 +1,17 @@
 package snake.model;
 
-import java.awt.*;
+import javafx.scene.paint.Color;
 
 public enum Colors {
-    BLUE(Color.blue), GREEN(Color.green), PINK(Color.pink), ORANGE(Color.orange), YELLOW(Color.yellow);
+    BLUE(Color.BLUE), GREEN(Color.GREEN), PINK(Color.PINK), ORANGE(Color.ORANGE), YELLOW(Color.YELLOW);
 
-    private Color color;
+    private javafx.scene.paint.Paint color;
 
-    Colors(Color color){
+    Colors(javafx.scene.paint.Paint color){
         this.color = color;
     }
 
-    public Color getColor() {
+    public javafx.scene.paint.Paint getColor() {
         return color;
     }
 }

@@ -44,7 +44,7 @@ public class BoardController implements Initializable {
             graphicsContext.fillRect(part.getX() * pixel, part.getY() * pixel, pixel, pixel);
         }
 
-        graphicsContext.setFill(Color.RED);
+        graphicsContext.setFill(game.getFood().getColor().getColor());
         graphicsContext.fillRect(game.getFood().getX() * pixel, game.getFood().getY() * pixel, pixel, pixel);
     }
 
