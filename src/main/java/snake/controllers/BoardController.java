@@ -56,10 +56,13 @@ public class BoardController implements Initializable, Runnable {
 
         Snake snake = game.getSnake();
         for(SnakePart part : snake.getSnake()){
-            graphicsContext.setFill(Color.WHITE);
-            graphicsContext.fillRect(part.getX() * PIXEL, part.getY() * PIXEL, PIXEL, PIXEL);
+            graphicsContext.setFill(Color.BLACK); //border
+            graphicsContext.fillRect(game.getFood().getX() * PIXEL, game.getFood().getY() * PIXEL, PIXEL, PIXEL);
+            graphicsContext.setFill(Color.WHITE); //inside
+            graphicsContext.fillRect(part.getX() * PIXEL + 0.5, part.getY() * PIXEL + 0.5, PIXEL - 1, PIXEL - 1);
         }
 
+        //food
         graphicsContext.setFill(game.getFood().getColor().getColor());
         graphicsContext.fillRect(game.getFood().getX() * PIXEL, game.getFood().getY() * PIXEL, PIXEL, PIXEL);
 
