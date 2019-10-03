@@ -1,7 +1,6 @@
 package snake.controllers;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
@@ -24,35 +23,61 @@ import java.util.ResourceBundle;
 
 public class BoardController implements Initializable, Runnable {
     public Canvas canvas;
-    public Button pauseButton; //when it is clicked change text to resume and vice versa
+    public Button pauseButton;
     public Button restartButton;
     public Button endGameButton;
     public Label score;
     public BorderPane pane;
     public Label scoreLabel;
 
+    private GraphicsContext graphicsContext;
     private Game game;
 
-    private static final int width = 40;
-    private static final int height = 40;
-    private static final int pixel = 10;
-    private static int TICKER_INTERVAL = 300;
-
-    private GraphicsContext graphicsContext;
+    private static final int WIDTH = 40;
+    private static final int HEIGHT = 40;
+    private static final int PIXEL = 10;
+    private static final int TICKER_INTERVAL = 300;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         game = new Game();
         graphicsContext = canvas.getGraphicsContext2D();
+
         drawBoard(graphicsContext);
-        score.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        scoreLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        canvas.setOnKeyTyped(this::handleKeyInput);
-        pauseButton.setOnAction(this::pauseOrResume);
-        restartButton.setOnAction(this::restart);
-        endGameButton.setOnAction(this::endGame);
+        setLayoutProperties();
+        bindInputHandlers();
+
         canvas.requestFocus();
         new Thread(this).start();
+    }
+
+    private void drawBoard(GraphicsContext graphicsContext) {
+        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.fillRect(0,0, WIDTH * PIXEL, HEIGHT * PIXEL);
+
+        Snake snake = game.getSnake();
+        for(SnakePart part : snake.getSnake()){
+            graphicsContext.setFill(Color.WHITE);
+            graphicsContext.fillRect(part.getX() * PIXEL, part.getY() * PIXEL, PIXEL, PIXEL);
+        }
+
+        graphicsContext.setFill(game.getFood().getColor().getColor());
+        graphicsContext.fillRect(game.getFood().getX() * PIXEL, game.getFood().getY() * PIXEL, PIXEL, PIXEL);
+
+        Platform.runLater(() -> score.setText(String.valueOf(game.getScore())));
+    }
+
+    private void setLayoutProperties() {
+        //do this in css
+        score.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        scoreLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+    }
+
+    private void bindInputHandlers() {
+        canvas.setOnKeyTyped(this::handleKeyInput);
+        pauseButton.setOnAction((actionEvent) -> pauseOrResume());
+        restartButton.setOnAction((actionEvent) -> restart());
+        endGameButton.setOnAction((actionEvent) -> endGame());
     }
 
     private void handleKeyInput(KeyEvent event) {
@@ -74,70 +99,30 @@ public class BoardController implements Initializable, Runnable {
                 break;
             }
         }
-
-        drawBoard(graphicsContext);
     }
 
-
-    private synchronized void pauseOrResume(ActionEvent actionEvent) {
+    private synchronized void pauseOrResume() {
         if(game.isPaused()){
-            pauseButton.setText("pause");
+            pauseButton.setText("PAUSE");
             game.setGameOver(false);
         }else{
-            pauseButton.setText("resume");
+            pauseButton.setText("RESUME");
             game.setGameOver(true);
         }
 
         notifyAll();
     }
 
-    private synchronized void restart(ActionEvent actionEvent) {
+    private synchronized void restart() {
         game = new Game();
         notifyAll();
     }
 
-    private synchronized void endGame(ActionEvent actionEvent) {
+    private synchronized void endGame() {
         game.setGameOver(true);
         showGameOverMessage();
         notifyAll();
     }
-
-
-
-    private void drawBoard(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillRect(0,0,width * pixel, height * pixel);
-
-        Snake snake = game.getSnake();
-        for(SnakePart part : snake.getSnake()){
-            graphicsContext.setFill(Color.WHITE);
-            graphicsContext.fillRect(part.getX() * pixel, part.getY() * pixel, pixel, pixel);
-        }
-
-        graphicsContext.setFill(game.getFood().getColor().getColor());
-        graphicsContext.fillRect(game.getFood().getX() * pixel, game.getFood().getY() * pixel, pixel, pixel);
-
-        Platform.runLater(() -> score.setText(String.valueOf(game.getScore())));
-    }
-
-    private void play() {
-        if(!game.getSnake().move() || game.isSnakeHitEdge()){
-            game.setGameOver(true);
-            showGameOverMessage();
-            return;
-        }
-
-        if(game.getSnake().canEat(game.getFood())){
-            game.getSnake().eat(game.getFood());
-            game.increaseScore();
-            game.nextFood();
-        }
-
-
-        drawBoard(graphicsContext);
-    }
-
-
 
     @Override
     public void run() {
@@ -162,14 +147,32 @@ public class BoardController implements Initializable, Runnable {
         }
     }
 
+
+    private void play() {
+        if(!game.getSnake().move() || game.isSnakeHitEdge()){
+            game.setGameOver(true);
+            showGameOverMessage();
+            return;
+        }
+
+        if(game.getSnake().canEat(game.getFood())){
+            game.getSnake().eat(game.getFood());
+            game.increaseScore();
+            game.nextFood();
+        }
+
+
+        drawBoard(graphicsContext);
+    }
+
     private void showGameOverMessage() {
         String message = "Oh no, Game Over!";
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillRect(0,0,width * pixel, height * pixel);
+        graphicsContext.fillRect(0,0, WIDTH * PIXEL, HEIGHT * PIXEL);
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.setTextAlign(TextAlignment.CENTER);
         graphicsContext.setTextBaseline(VPos.CENTER);
         graphicsContext.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        graphicsContext.fillText(message, (width * pixel) / 2., (height * pixel) / 2.);
+        graphicsContext.fillText(message, (WIDTH * PIXEL) / 2., (HEIGHT * PIXEL) / 2.);
     }
 }
