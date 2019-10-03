@@ -96,10 +96,10 @@ public class BoardController implements Initializable, Runnable {
 
     private synchronized void pauseOrResume() {
         if(game.isPaused()){
-            pauseButton.setText("PAUSE");
+            pauseButton.setText("pause");
             game.setGameOver(false);
         }else{
-            pauseButton.setText("RESUME");
+            pauseButton.setText("resume");
             game.setGameOver(true);
         }
 
@@ -107,6 +107,7 @@ public class BoardController implements Initializable, Runnable {
     }
 
     private synchronized void restart() {
+        pauseButton.setDisable(false);
         game = new Game(WIDTH, HEIGHT);
         notifyAll();
     }
@@ -145,6 +146,7 @@ public class BoardController implements Initializable, Runnable {
         if(!game.getSnake().move() || game.isSnakeHitEdge()){
             game.setGameOver(true);
             showGameOverMessage();
+            pauseButton.setDisable(true);
             return;
         }
 
