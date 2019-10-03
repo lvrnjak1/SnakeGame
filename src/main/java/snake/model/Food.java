@@ -1,5 +1,7 @@
 package snake.model;
 
+import snake.utility.Colors;
+
 import java.util.Random;
 
 public class Food{

@@ -1,5 +1,7 @@
 package snake.model;
 
+import snake.utility.Direction;
+
 public class SnakePart{
     private int x;
     private int y;
@@ -25,16 +27,12 @@ public class SnakePart{
         this.y = y;
     }
 
-    public void movePart(int deltaX, int deltaY){
+    private void movePart(int deltaX, int deltaY){
         setX(getX() + deltaX);
         setY(getY() + deltaY);
     }
 
-    public boolean inCollision(int x, int y){
-        return getX() == x && getY() == y;
-    }
-
-    public void move(Direction direction) {
+    void move(Direction direction) {
         movePart(direction.getDeltaX(), direction.getDeltaY());
     }
 }
