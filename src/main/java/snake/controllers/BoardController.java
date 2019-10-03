@@ -75,7 +75,7 @@ public class BoardController implements Initializable, Runnable {
         restartButton.setOnAction((actionEvent) -> restart());
         endGameButton.setOnAction((actionEvent) -> endGame());
     }
-
+    
     private void handleKeyInput(KeyEvent event) {
         switch (event.getCharacter()){
             case "w":{
