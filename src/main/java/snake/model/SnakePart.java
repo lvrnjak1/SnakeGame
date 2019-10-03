@@ -1,8 +1,6 @@
 package snake.model;
 
-import java.util.Objects;
-
-public class SnakePart {
+public class SnakePart implements Movable{
     private int x;
     private int y;
 
@@ -34,5 +32,10 @@ public class SnakePart {
 
     public boolean inCollision(int x, int y){
         return getX() == x && getY() == y;
+    }
+
+    @Override
+    public void move() {
+
     }
 }

@@ -3,7 +3,7 @@ package snake.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake {
+public class Snake implements Movable{
     private List<SnakePart> snake = new ArrayList<>();
     private int speed;
     private Direction direction;
@@ -47,5 +47,10 @@ public class Snake {
 
     public Direction getDirection() {
         return direction;
+    }
+
+    @Override
+    public void move() {
+
     }
 }

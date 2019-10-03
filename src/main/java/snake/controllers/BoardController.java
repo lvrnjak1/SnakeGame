@@ -1,5 +1,6 @@
 package snake.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -17,7 +18,7 @@ import snake.model.SnakePart;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BoardController implements Initializable {
+public class BoardController implements Initializable, Runnable {
     public Canvas canvas;
     public Button pauseButton; //when it is clicked change text to resume and vice versa
     public Button restartButton;
@@ -30,6 +31,7 @@ public class BoardController implements Initializable {
     private static final int width = 40;
     private static final int heigth = 40;
     private static final int pixel = 10;
+    private static final int TICKER_INTERVAL = 5;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,6 +42,8 @@ public class BoardController implements Initializable {
         pauseButton.setOnAction(this::pauseOrResume);
         restartButton.setOnAction(this::restart);
         endGameButton.setOnAction(this::endGame);
+        canvas.requestFocus();
+        new Thread(this).start();
     }
 
     private void handleKeyInput(KeyEvent event) {
@@ -100,10 +104,42 @@ public class BoardController implements Initializable {
         graphicsContext.fillRect(game.getFood().getX() * pixel, game.getFood().getY() * pixel, pixel, pixel);
     }
 
-    private void play(GraphicsContext graphicsContext) {
+    private void play() {
         if(game.isGameOver()){
-            //add a label for game over
+            showAlert("Game Over");
             return;
         }
+
+        game.getSnake().move();
+        /*if(game.getSnake().canEat(game.getFood())){
+
+        }*/
+    }
+
+
+
+    @Override
+    public void run() {
+        while (!Thread.interrupted()) {
+            synchronized (this) {
+                while (!game.isGameOver()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Platform.runLater(() -> canvas.requestFocus());
+            play();
+            try {
+                Thread.sleep(TICKER_INTERVAL);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void showAlert(String message) {
     }
 }
