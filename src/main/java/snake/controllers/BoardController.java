@@ -51,22 +51,18 @@ public class BoardController implements Initializable, Runnable {
     private void handleKeyInput(KeyEvent event) {
         switch (event.getCharacter()){
             case "w":{
-                //up
                 game.getSnake().setDirection(Direction.UP);
                 break;
             }
             case "a":{
-                //left
                 game.getSnake().setDirection(Direction.LEFT);
                 break;
             }
             case "s":{
-                //down
                 game.getSnake().setDirection(Direction.DOWN);
                 break;
             }
             case "d":{
-                //right
                 game.getSnake().setDirection(Direction.RIGHT);
                 break;
             }
@@ -112,6 +108,8 @@ public class BoardController implements Initializable, Runnable {
 
         graphicsContext.setFill(game.getFood().getColor().getColor());
         graphicsContext.fillRect(game.getFood().getX() * pixel, game.getFood().getY() * pixel, pixel, pixel);
+
+        Platform.runLater(() -> score.setText(String.valueOf(game.getScore())));
     }
 
     private void play() {
@@ -123,6 +121,7 @@ public class BoardController implements Initializable, Runnable {
 
         if(game.getSnake().canEat(game.getFood())){
             game.getSnake().eat(game.getFood());
+            game.increaseScore();
             game.nextFood();
         }
 

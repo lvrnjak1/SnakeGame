@@ -70,4 +70,8 @@ public class Game {
             food.nextPosition(boardWidth, boardHeight);
         }
     }
+
+    public void increaseScore() {
+        score += 10;
+    }
 }
