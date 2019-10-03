@@ -72,7 +72,7 @@ public class Snake implements Movable{
         addPart(food.getX(), food.getY());
     }
 
-    public boolean isSelfColided() {
+    private boolean isSelfColided() {
         for(int i = 1; i < snake.size(); i++){
             if(snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()){
                 return true;
@@ -82,7 +82,7 @@ public class Snake implements Movable{
         return false;
     }
 
-    public SnakePart getHead() {
+    SnakePart getHead() {
         return snake.get(0);
     }
 }
