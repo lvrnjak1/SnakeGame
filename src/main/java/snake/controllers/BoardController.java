@@ -34,7 +34,7 @@ public class BoardController implements Initializable, Runnable {
     private Game game;
 
     private static final int width = 40;
-    private static final int heigth = 40;
+    private static final int height = 40;
     private static final int pixel = 10;
     private static final int TICKER_INTERVAL = 350;
 
@@ -106,7 +106,7 @@ public class BoardController implements Initializable, Runnable {
 
     private void drawBoard(GraphicsContext graphicsContext) {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
+        graphicsContext.fillRect(0,0,width * pixel, height * pixel);
 
         Snake snake = game.getSnake();
         for(SnakePart part : snake.getSnake()){
@@ -165,11 +165,11 @@ public class BoardController implements Initializable, Runnable {
     private void showGameOverMessage() {
         String message = "Oh no, Game Over!";
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
+        graphicsContext.fillRect(0,0,width * pixel, height * pixel);
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.setTextAlign(TextAlignment.CENTER);
         graphicsContext.setTextBaseline(VPos.CENTER);
         graphicsContext.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        graphicsContext.fillText(message, (width * pixel) / 2., (heigth * pixel) / 2.);
+        graphicsContext.fillText(message, (width * pixel) / 2., (height * pixel) / 2.);
     }
 }
