@@ -66,9 +66,19 @@ public class Game {
 
     public void nextFood() {
         food.nextColor();
-        while (food.getX() == snake.getHead().getX() && food.getY() == snake.getHead().getY()) {
+        do{
             food.nextPosition(boardWidth, boardHeight);
+        }while (foodInCollisionWithSnake());
+    }
+
+    private boolean foodInCollisionWithSnake() {
+        for(int i = 0; i < getSnake().getSnake().size(); i++){
+            if(getFood().getX() == getSnake().getPart(i).getX() && getFood().getY() == getSnake().getPart(i).getY()){
+                return true;
+            }
         }
+
+        return false;
     }
 
     public void increaseScore() {
