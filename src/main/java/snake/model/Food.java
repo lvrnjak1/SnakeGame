@@ -41,9 +41,15 @@ public class Food{
 
     public void nextColor(){
         Random random = new Random();
-        int color = random.nextInt(5);
+        Colors oldColor = getColor();
+        Colors newColor;
+        int color;
+        do {
+            color = random.nextInt(Colors.values().length);
+            newColor = Colors.values()[color];
+        }while (oldColor != newColor);
 
-        setColor(Colors.values()[color]);
+        setColor(newColor);
     }
 
     public void nextPosition(int boardWidth, int boardHeight) {
