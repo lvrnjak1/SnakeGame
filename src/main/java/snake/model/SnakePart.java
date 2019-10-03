@@ -32,7 +32,7 @@ public class SnakePart{
         setY(getY() + deltaY);
     }
 
-    void move(Direction direction) {
+    public void move(Direction direction) {
         movePart(direction.getDeltaX(), direction.getDeltaY());
     }
 }
