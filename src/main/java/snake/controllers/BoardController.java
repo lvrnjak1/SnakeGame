@@ -126,23 +126,23 @@ public class BoardController implements Initializable, Runnable {
 
     @Override
     public void run() {
-        while (!Thread.interrupted()) {
-            synchronized (this) {
-                while (game.isGameOver()) {
+        while(!Thread.interrupted()){
+            Platform.runLater(() -> canvas.requestFocus());
+            play();
+            try {
+                Thread.sleep(TICKER_INTERVAL - game.getSnake().getSpeed() * 10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            synchronized ( this){
+                while (game.isGameOver()){
                     try {
                         wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-            }
-            Platform.runLater(() -> canvas.requestFocus());
-            play();
-
-            try {
-                Thread.sleep(TICKER_INTERVAL - game.getSnake().getSpeed() * 10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }
