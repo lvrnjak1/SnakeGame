@@ -95,7 +95,7 @@ public class BoardController implements Initializable, Runnable {
 
     private synchronized void endGame(ActionEvent actionEvent) {
         game.setGameOver(true);
-        showGameOverAlert();
+        showGameOverMessage();
         notifyAll();
     }
 
@@ -120,7 +120,7 @@ public class BoardController implements Initializable, Runnable {
     private void play() {
         if(!game.getSnake().move() || game.isSnakeHitEdge()){
             game.setGameOver(true);
-            showGameOverAlert();
+            showGameOverMessage();
             return;
         }
 
@@ -159,8 +159,8 @@ public class BoardController implements Initializable, Runnable {
         }
     }
 
-    private void showGameOverAlert() {
-        String message = "Game Over";
+    private void showGameOverMessage() {
+        String message = "Oh no, Game Over!";
         graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
         graphicsContext.setFill(Color.WHITE);
