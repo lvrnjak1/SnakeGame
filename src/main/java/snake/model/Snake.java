@@ -49,6 +49,10 @@ public class Snake{
         return direction;
     }
 
+    public SnakePart getHead() {
+        return getPart(0);
+    }
+
     public synchronized boolean move() {
         for(int i = snake.size() - 1; i > 0; i--){
             snake.get(i).setX(snake.get(i-1).getX());
@@ -79,10 +83,6 @@ public class Snake{
         }
 
         return false;
-    }
-
-    public SnakePart getHead() {
-        return snake.get(0);
     }
 
     public void increaseSpeed() {

@@ -79,19 +79,27 @@ public class BoardController implements Initializable, Runnable {
     private void handleKeyInput(KeyEvent event) {
         switch (event.getCharacter()){
             case "w":{
-                game.getSnake().setDirection(Direction.UP);
+                if(game.getSnake().getDirection() != Direction.DOWN) {
+                    game.getSnake().setDirection(Direction.UP);
+                }
                 break;
             }
             case "a":{
-                game.getSnake().setDirection(Direction.LEFT);
+                if(game.getSnake().getDirection() != Direction.RIGHT) {
+                    game.getSnake().setDirection(Direction.LEFT);
+                }
                 break;
             }
             case "s":{
-                game.getSnake().setDirection(Direction.DOWN);
+                if(game.getSnake().getDirection() != Direction.UP) {
+                    game.getSnake().setDirection(Direction.DOWN);
+                }
                 break;
             }
             case "d":{
-                game.getSnake().setDirection(Direction.RIGHT);
+                if(game.getSnake().getDirection() != Direction.LEFT) {
+                    game.getSnake().setDirection(Direction.RIGHT);
+                }
                 break;
             }
         }
