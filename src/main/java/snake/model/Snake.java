@@ -77,4 +77,8 @@ public class Snake implements Movable{
 
         return false;
     }
+
+    public SnakePart getHead() {
+        return snake.get(0);
+    }
 }

@@ -33,10 +33,12 @@ public class BoardController implements Initializable, Runnable {
     private static final int pixel = 10;
     private static final int TICKER_INTERVAL = 5;
 
+    GraphicsContext graphicsContext;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         game = new Game();
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
+        graphicsContext = canvas.getGraphicsContext2D();
         drawBoard(graphicsContext);
         canvas.setOnKeyPressed(this::handleKeyInput);
         pauseButton.setOnAction(this::pauseOrResume);
@@ -111,6 +113,7 @@ public class BoardController implements Initializable, Runnable {
         }
 
         game.getSnake().move();
+        drawBoard(graphicsContext);
         if(game.getSnake().isSelfColided() || game.isSnakeHitEdge()){
             game.setGameOver(true);
             showAlert("Game Over");

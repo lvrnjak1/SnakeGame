@@ -5,11 +5,12 @@ import java.util.Random;
 public class Food{
     private int x;
     private int y;
-    private Colors color = Colors.BLUE;
+    private Colors color;
 
     public Food(int x, int y) {
         this.x = x;
         this.y = y;
+        nextColor();
     }
 
     public int getX() {
