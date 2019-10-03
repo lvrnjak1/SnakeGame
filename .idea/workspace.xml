@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="snake parts now have border">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="code refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java" afterDir="false" />
     </list>
@@ -64,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+            <state relative-caret-position="143">
+              <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,7 +202,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570104370512" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570106573583" />
     <property name="dynamic.classpath" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -319,7 +319,7 @@
       <workItem from="1570011085876" duration="596000" />
       <workItem from="1570047942176" duration="91000" />
       <workItem from="1570078794743" duration="15455000" />
-      <workItem from="1570101835387" duration="2517000" />
+      <workItem from="1570101835387" duration="2776000" />
     </task>
     <task id="LOCAL-00001" summary="method that returns the number of body parts">
       <created>1570081028757</created>
@@ -580,11 +580,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570102844090</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="code refactoring">
+      <created>1570106212504</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1570106212504</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29456000" />
+    <option name="totallyTimeSpent" value="29715000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -654,11 +661,11 @@
     <MESSAGE value="score is now a long variable" />
     <MESSAGE value="code reformating and refactoring" />
     <MESSAGE value="text properties are handled in css" />
-    <MESSAGE value="code refactoring" />
     <MESSAGE value="stage title" />
     <MESSAGE value="pause/resume button disabled when game over" />
     <MESSAGE value="snake parts now have border" />
-    <option name="LAST_COMMIT_MESSAGE" value="snake parts now have border" />
+    <MESSAGE value="code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="code refactoring" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -749,8 +756,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/snake/controllers/BoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+        <state relative-caret-position="143">
+          <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

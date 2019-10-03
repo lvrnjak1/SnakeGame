@@ -75,7 +75,7 @@ public class BoardController implements Initializable, Runnable {
         restartButton.setOnAction((actionEvent) -> restart());
         endGameButton.setOnAction((actionEvent) -> endGame());
     }
-    
+
     private void handleKeyInput(KeyEvent event) {
         switch (event.getCharacter()){
             case "w":{
@@ -111,11 +111,14 @@ public class BoardController implements Initializable, Runnable {
 
     private synchronized void restart() {
         pauseButton.setDisable(false);
+        endGameButton.setDisable(false);
         game = new Game(WIDTH, HEIGHT);
         notifyAll();
     }
 
     private synchronized void endGame() {
+        pauseButton.setDisable(true);
+        endGameButton.setDisable(true);
         game.setGameOver(true);
         showGameOverMessage();
         notifyAll();
@@ -150,6 +153,7 @@ public class BoardController implements Initializable, Runnable {
             game.setGameOver(true);
             showGameOverMessage();
             pauseButton.setDisable(true);
+            endGameButton.setDisable(true);
             return;
         }
 
