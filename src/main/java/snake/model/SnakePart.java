@@ -27,7 +27,7 @@ public class SnakePart{
         this.y = y;
     }
 
-    private void movePart(int deltaX, int deltaY){
+    private synchronized void movePart(int deltaX, int deltaY){
         setX(getX() + deltaX);
         setY(getY() + deltaY);
     }

@@ -58,6 +58,7 @@ public class Snake{
             snake.get(i).setX(snake.get(i-1).getX());
             snake.get(i).setY(snake.get(i-1).getY());
         }
+
         getHead().move(getDirection());
 
         return !isSelfColided();
