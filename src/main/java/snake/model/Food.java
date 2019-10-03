@@ -12,7 +12,6 @@ public class Food{
     public Food(int x, int y) {
         this.x = x;
         this.y = y;
-        //color = Colors.BLUE;
         nextColor();
     }
 
