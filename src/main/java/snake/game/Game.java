@@ -2,7 +2,7 @@ package snake.game;
 
 import snake.model.Food;
 import snake.model.Snake;
-import snake.model.SnakePart;
+import main.java.snake.model.SnakePart;
 
 import java.util.Random;
 

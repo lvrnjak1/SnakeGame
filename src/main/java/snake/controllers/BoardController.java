@@ -15,7 +15,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import snake.game.Game;
 import snake.model.Snake;
-import snake.model.SnakePart;
+import main.java.snake.model.SnakePart;
 import snake.utility.Direction;
 
 import java.net.URL;

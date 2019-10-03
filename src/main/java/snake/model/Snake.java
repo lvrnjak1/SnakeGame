@@ -1,5 +1,6 @@
 package snake.model;
 
+import main.java.snake.model.SnakePart;
 import snake.utility.Direction;
 
 import java.util.ArrayList;
