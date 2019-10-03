@@ -72,6 +72,7 @@ public class Game {
     }
 
     public void increaseScore() {
-        score += 10;
+        score += 10 + getSnake().getSpeed();
+        snake.increaseSpeed();
     }
 }

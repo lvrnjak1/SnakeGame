@@ -36,7 +36,7 @@ public class BoardController implements Initializable, Runnable {
     private static final int width = 40;
     private static final int height = 40;
     private static final int pixel = 10;
-    private static final int TICKER_INTERVAL = 350;
+    private static int TICKER_INTERVAL = 300;
 
     private GraphicsContext graphicsContext;
 
@@ -155,7 +155,7 @@ public class BoardController implements Initializable, Runnable {
             play();
 
             try {
-                Thread.sleep(TICKER_INTERVAL);
+                Thread.sleep(TICKER_INTERVAL - game.getSnake().getSpeed() * 10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

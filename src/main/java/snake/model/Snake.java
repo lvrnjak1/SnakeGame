@@ -13,7 +13,7 @@ public class Snake implements Movable{
         addPart(width/2 + 2,height/2);
         addPart(width/2 + 1,height/2);
         addPart(width/2,height/2);
-        this.speed = 5;
+        this.speed = 1;
         this.direction = Direction.RIGHT;
     }
 
@@ -84,5 +84,11 @@ public class Snake implements Movable{
 
     SnakePart getHead() {
         return snake.get(0);
+    }
+
+    public void increaseSpeed() {
+        if(speed <= 20){
+            speed++;
+        }
     }
 }
