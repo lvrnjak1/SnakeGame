@@ -1,15 +1,16 @@
 package snake.model;
 
+import snake.utility.Direction;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake implements Movable{
+public class Snake{
     private List<SnakePart> snake = new ArrayList<>();
     private int speed;
     private Direction direction;
 
     public Snake(int width, int height) {
-        //default snake with three parts
         addPart(width/2 + 2,height/2);
         addPart(width/2 + 1,height/2);
         addPart(width/2,height/2);
@@ -33,14 +34,6 @@ public class Snake implements Movable{
         return speed;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getNumberOfParts(){
-        return snake.size();
-    }
-
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
@@ -49,7 +42,6 @@ public class Snake implements Movable{
         return direction;
     }
 
-    @Override
     public synchronized boolean move() {
         for(int i = snake.size() - 1; i > 0; i--){
             snake.get(i).setX(snake.get(i-1).getX());
@@ -82,7 +74,7 @@ public class Snake implements Movable{
         return false;
     }
 
-    SnakePart getHead() {
+    public SnakePart getHead() {
         return snake.get(0);
     }
 

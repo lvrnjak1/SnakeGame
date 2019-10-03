@@ -13,10 +13,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
-import snake.model.Direction;
-import snake.model.Game;
+import snake.game.Game;
 import snake.model.Snake;
 import snake.model.SnakePart;
+import snake.utility.Direction;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +40,7 @@ public class BoardController implements Initializable, Runnable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        game = new Game();
+        game = new Game(WIDTH, HEIGHT);
         graphicsContext = canvas.getGraphicsContext2D();
 
         drawBoard(graphicsContext);
@@ -107,7 +107,7 @@ public class BoardController implements Initializable, Runnable {
     }
 
     private synchronized void restart() {
-        game = new Game();
+        game = new Game(WIDTH, HEIGHT);
         notifyAll();
     }
 
