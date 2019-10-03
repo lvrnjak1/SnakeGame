@@ -6,6 +6,7 @@ import java.util.List;
 public class Snake {
     private List<SnakePart> snake = new ArrayList<>();
     private int speed;
+    private Direction direction;
 
     public Snake(int width, int height) {
         //default snake with three parts
@@ -13,6 +14,7 @@ public class Snake {
         addPart(width/2,height/2);
         addPart(width/2,height/2);
         this.speed = 5;
+        this.direction = Direction.RIGHT;
     }
 
     public List<SnakePart> getSnake() {
@@ -37,5 +39,13 @@ public class Snake {
 
     public int getNumberOfParts(){
         return snake.size();
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }
