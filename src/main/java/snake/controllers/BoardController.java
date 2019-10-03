@@ -31,16 +31,16 @@ public class BoardController implements Initializable, Runnable {
     private static final int width = 40;
     private static final int heigth = 40;
     private static final int pixel = 10;
-    private static final int TICKER_INTERVAL = 5;
+    private static final int TICKER_INTERVAL = 350;
 
-    GraphicsContext graphicsContext;
+    private GraphicsContext graphicsContext;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         game = new Game();
         graphicsContext = canvas.getGraphicsContext2D();
         drawBoard(graphicsContext);
-        canvas.setOnKeyPressed(this::handleKeyInput);
+        canvas.setOnKeyTyped(this::handleKeyInput);
         pauseButton.setOnAction(this::pauseOrResume);
         restartButton.setOnAction(this::restart);
         endGameButton.setOnAction(this::endGame);
@@ -61,16 +61,18 @@ public class BoardController implements Initializable, Runnable {
                 break;
             }
             case "s":{
-                //right
-                game.getSnake().setDirection(Direction.RIGHT);
-                break;
-            }
-            case "d":{
                 //down
                 game.getSnake().setDirection(Direction.DOWN);
                 break;
             }
+            case "d":{
+                //right
+                game.getSnake().setDirection(Direction.RIGHT);
+                break;
+            }
         }
+
+        drawBoard(graphicsContext);
     }
 
 
@@ -94,6 +96,7 @@ public class BoardController implements Initializable, Runnable {
 
     private void drawBoard(GraphicsContext graphicsContext) {
         //do i need to clear it?
+        graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillRect(0,0,width * pixel,heigth * pixel);
 
         Snake snake = game.getSnake();
@@ -112,9 +115,7 @@ public class BoardController implements Initializable, Runnable {
             return;
         }
 
-        game.getSnake().move();
-        drawBoard(graphicsContext);
-        if(game.getSnake().isSelfColided() || game.isSnakeHitEdge()){
+        if(!game.getSnake().move() && !game.isSnakeHitEdge()){
             game.setGameOver(true);
             showAlert("Game Over");
             return;
@@ -124,6 +125,9 @@ public class BoardController implements Initializable, Runnable {
             game.getSnake().eat(game.getFood());
             game.nextFood();
         }
+
+
+        drawBoard(graphicsContext);
     }
 
 
@@ -132,7 +136,7 @@ public class BoardController implements Initializable, Runnable {
     public void run() {
         while (!Thread.interrupted()) {
             synchronized (this) {
-                while (!game.isGameOver()) {
+                while (game.isGameOver()) {
                     try {
                         wait();
                     } catch (InterruptedException e) {

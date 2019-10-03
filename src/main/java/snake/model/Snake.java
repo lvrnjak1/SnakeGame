@@ -10,8 +10,8 @@ public class Snake implements Movable{
 
     public Snake(int width, int height) {
         //default snake with three parts
-        addPart(width/2,height/2);
-        addPart(width/2,height/2);
+        addPart(width/2 + 2,height/2);
+        addPart(width/2 + 1,height/2);
         addPart(width/2,height/2);
         this.speed = 5;
         this.direction = Direction.RIGHT;
@@ -50,10 +50,14 @@ public class Snake implements Movable{
     }
 
     @Override
-    public void move() {
-        for(SnakePart snakePart : snake){
-            snakePart.move(getDirection());
+    public synchronized boolean move() {
+        for(int i = snake.size() - 1; i > 0; i--){
+            snake.get(i).setX(snake.get(i-1).getX());
+            snake.get(i).setY(snake.get(i-1).getY());
         }
+        getHead().move(getDirection());
+
+        return !isSelfColided();
     }
 
     public boolean canEat(Food food) {
