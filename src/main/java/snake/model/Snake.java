@@ -17,7 +17,6 @@ public class Snake{
         addPart(width/2 + direction.getDeltaX(),height/2 + direction.getDeltaY());
         addPart(width/2,height/2);
         this.speed = 1;
-
     }
 
     private Direction getRandomDirection() {
