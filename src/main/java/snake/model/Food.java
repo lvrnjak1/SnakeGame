@@ -2,7 +2,7 @@ package snake.model;
 
 import java.util.Random;
 
-public class Food implements Movable{
+public class Food{
     private int x;
     private int y;
     private Colors color = Colors.BLUE;
@@ -43,8 +43,12 @@ public class Food implements Movable{
         setColor(Colors.values()[color]);
     }
 
-    @Override
-    public void move() {
+    public void nextPosition(int boardWidth, int boardHeight) {
+        Random random = new Random();
+        int newX = random.nextInt(boardWidth);
+        int newY = random.nextInt(boardHeight);
 
+        setX(newX);
+        setY(newY);
     }
 }

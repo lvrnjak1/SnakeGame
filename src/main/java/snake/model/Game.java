@@ -69,4 +69,11 @@ public class Game {
 
         return false;
     }
+
+    public void nextFood() {
+        food.nextColor();
+        while (food.getX() == snake.getHead().getX() && food.getY() == snake.getHead().getY()) {
+            food.nextPosition(boardWidth, boardHeight);
+        }
+    }
 }

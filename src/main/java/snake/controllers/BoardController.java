@@ -111,9 +111,16 @@ public class BoardController implements Initializable, Runnable {
         }
 
         game.getSnake().move();
-        /*if(game.getSnake().canEat(game.getFood())){
+        if(game.getSnake().isSelfColided() || game.isSnakeHitEdge()){
+            game.setGameOver(true);
+            showAlert("Game Over");
+            return;
+        }
 
-        }*/
+        if(game.getSnake().canEat(game.getFood())){
+            game.getSnake().eat(game.getFood());
+            game.nextFood();
+        }
     }
 
 
