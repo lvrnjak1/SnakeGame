@@ -41,13 +41,12 @@ public class Food{
 
     public void nextColor(){
         Random random = new Random();
-        Colors oldColor = getColor();
         Colors newColor;
         int color;
         do {
             color = random.nextInt(Colors.values().length);
             newColor = Colors.values()[color];
-        }while (oldColor != newColor);
+        }while (getColor() != newColor);
 
         setColor(newColor);
     }
