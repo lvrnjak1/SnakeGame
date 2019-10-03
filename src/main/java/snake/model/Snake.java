@@ -55,4 +55,26 @@ public class Snake implements Movable{
             snakePart.move(getDirection());
         }
     }
+
+    public boolean canEat(Food food) {
+        for(SnakePart snakePart : snake){
+            if(snakePart.getX() == food.getX() && snakePart.getY() == food.getY()) return true;
+        }
+        
+        return false;
+    }
+
+    public void eat(Food food) {
+        //TODO
+    }
+
+    public boolean isSelfColided() {
+        for(int i = 1; i < snake.size(); i++){
+            if(snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
