@@ -4,6 +4,7 @@ import snake.utility.Direction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Snake{
     private List<SnakePart> snake = new ArrayList<>();
@@ -15,7 +16,13 @@ public class Snake{
         addPart(width/2 + 1,height/2);
         addPart(width/2,height/2);
         this.speed = 1;
-        this.direction = Direction.RIGHT;
+        this.direction = getRandomDirection();
+    }
+
+    private Direction getRandomDirection() {
+        Random random = new Random();
+        int dir = random.nextInt(5);
+        return Direction.values()[dir];
     }
 
     public List<SnakePart> getSnake() {
