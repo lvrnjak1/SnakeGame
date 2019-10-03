@@ -121,6 +121,7 @@ public class BoardController implements Initializable, Runnable {
         pauseButton.setDisable(false);
         endGameButton.setDisable(false);
         game = new Game(WIDTH, HEIGHT);
+        pauseButton.setText("pause");
         notifyAll();
     }
 
@@ -129,6 +130,7 @@ public class BoardController implements Initializable, Runnable {
         endGameButton.setDisable(true);
         game.setGameOver(true);
         showGameOverMessage();
+        pauseButton.setText("pause");
         notifyAll();
     }
 
