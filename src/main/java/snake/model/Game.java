@@ -48,11 +48,25 @@ public class Game {
         return gameOver;
     }
 
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
     public void setPaused(boolean paused) {
         this.paused = paused;
     }
 
     public boolean isPaused(){
         return paused;
+    }
+
+    public boolean isSnakeHitEdge() {
+        for(SnakePart snakePart : snake.getSnake()){
+            if(snakePart.getX() == -1 || snakePart.getX() == boardWidth || snakePart.getY() == -1 || snakePart.getX() == boardHeight){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
