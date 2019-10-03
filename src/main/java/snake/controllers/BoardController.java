@@ -23,11 +23,11 @@ import java.util.ResourceBundle;
 
 public class BoardController implements Initializable, Runnable {
     public Canvas canvas;
+    public BorderPane pane;
     public Button pauseButton;
     public Button restartButton;
     public Button endGameButton;
     public Label score;
-    public BorderPane pane;
     public Label scoreLabel;
 
     private GraphicsContext graphicsContext;
@@ -146,7 +146,6 @@ public class BoardController implements Initializable, Runnable {
             }
         }
     }
-
 
     private void play() {
         if(!game.getSnake().move() || game.isSnakeHitEdge()){
