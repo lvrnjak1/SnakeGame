@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="fixing problems">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="fixing the pom file">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -275,21 +275,7 @@
       <workItem from="1570117239993" duration="1366000" />
       <workItem from="1570136202843" duration="110000" />
       <workItem from="1570137014064" duration="1620000" />
-      <workItem from="1570467439993" duration="6227000" />
-    </task>
-    <task id="LOCAL-00009" summary="all movable parts now implement the movable interface with the method move">
-      <created>1570083171724</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1570083171724</updated>
-    </task>
-    <task id="LOCAL-00010" summary="moving the parts of the snake according to the direction">
-      <created>1570083340478</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1570083340478</updated>
+      <workItem from="1570467439993" duration="6488000" />
     </task>
     <task id="LOCAL-00011" summary="changed deltax and deltay to match the real coordinate system">
       <created>1570083444586</created>
@@ -620,7 +606,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570473589241</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="fixing problems">
+      <created>1570473746913</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1570473746913</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fixing the pom file">
+      <created>1570473767539</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1570473767539</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -648,7 +648,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="regardless of the speed the score is always + 10" />
     <MESSAGE value="score is now a long variable" />
     <MESSAGE value="code reformating and refactoring" />
     <MESSAGE value="text properties are handled in css" />
@@ -673,7 +672,8 @@
     <MESSAGE value="added javafx dependency" />
     <MESSAGE value="reorganized code" />
     <MESSAGE value="fixing problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing problems" />
+    <MESSAGE value="fixing the pom file" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing the pom file" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
