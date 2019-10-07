@@ -1,4 +1,4 @@
-package main.java.snake.model;
+package snake.model;
 
 import snake.utility.Direction;
 

@@ -9,17 +9,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import snake.game.Game;
 import snake.model.Snake;
-import main.java.snake.model.SnakePart;
+import snake.model.SnakePart;
 import snake.utility.Direction;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+//import java.awt.*;
+//import java.net.URL;
+//import java.util.ResourceBundle;
 
 public class BoardController implements Initializable, Runnable {
     public Canvas canvas;
@@ -28,7 +31,6 @@ public class BoardController implements Initializable, Runnable {
     public Button restartButton;
     public Button endGameButton;
     public Label score;
-    public Label scoreLabel;
 
     private GraphicsContext graphicsContext;
     private Game game;
@@ -51,14 +53,14 @@ public class BoardController implements Initializable, Runnable {
     }
 
     private void drawBoard(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.setFill(javafx.scene.paint.Color.BLACK);
         graphicsContext.fillRect(0,0, WIDTH * PIXEL, HEIGHT * PIXEL);
 
         Snake snake = game.getSnake();
         for(SnakePart part : snake.getSnake()){
-            graphicsContext.setFill(Color.BLACK); //border
+            graphicsContext.setFill(javafx.scene.paint.Color.BLACK); //border
             graphicsContext.fillRect(game.getFood().getX() * PIXEL, game.getFood().getY() * PIXEL, PIXEL, PIXEL);
-            graphicsContext.setFill(Color.WHITE); //inside
+            graphicsContext.setFill(javafx.scene.paint.Color.WHITE); //inside
             graphicsContext.fillRect(part.getX() * PIXEL + 0.5, part.getY() * PIXEL + 0.5, PIXEL - 1, PIXEL - 1);
         }
 
@@ -178,9 +180,9 @@ public class BoardController implements Initializable, Runnable {
 
     private void showGameOverMessage() {
         String message = "Oh no, Game Over!";
-        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.setFill(javafx.scene.paint.Color.BLACK);
         graphicsContext.fillRect(0,0, WIDTH * PIXEL, HEIGHT * PIXEL);
-        graphicsContext.setFill(Color.WHITE);
+        graphicsContext.setFill(javafx.scene.paint.Color.WHITE);
         graphicsContext.setTextAlign(TextAlignment.CENTER);
         graphicsContext.setTextBaseline(VPos.CENTER);
         graphicsContext.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
