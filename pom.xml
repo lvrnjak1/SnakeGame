@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>main.java.snake.game.Main</mainClass>
+                            <mainClass>snake.game.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
